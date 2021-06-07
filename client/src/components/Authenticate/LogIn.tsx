@@ -15,7 +15,8 @@ export const LogIn = () => {
 
     const loginClick = (event: MouseEvent): void => {
         event.preventDefault();
-        setLoginInfo({username: username, password: password});
+        () => setLoginInfo({username: username, password: password});
+        alert('logged in')
     }
 
     return (
@@ -37,7 +38,7 @@ export const LogIn = () => {
                 />
             </div>
             <div className="login-button">
-                <button />
+                <button onClick={loginClick}>Log In</button>
             </div>
 
         </div>
