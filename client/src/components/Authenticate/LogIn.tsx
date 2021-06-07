@@ -15,7 +15,7 @@ export const LogIn = () => {
 
     const loginClick = (event: MouseEvent): void => {
         event.preventDefault();
-        () => setLoginInfo({username: username, password: password});
+        setLoginInfo({username: username, password: password});
         alert('logged in')
     }
 

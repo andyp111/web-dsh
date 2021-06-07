@@ -1,16 +1,21 @@
 {
-    "compilerOptions": {
-      "jsx": "react",
-      "module": "commonjs",
-      "noImplicitAny": true,
-      "outDir": "./client/dist",
-      "preserveConstEnums": true,
-      "removeComments": true,
-      "sourceMap": true,
-      "target": "es5",
-      "skipLibCheck": true
-    },
-    "include": [
-      "client/src/index.tsx"
+  "compilerOptions": {
+    "module": "es6",
+    "moduleResolution": "node",
+    "target": "es5",
+    "sourceMap": true,
+    "jsx": "react",
+    "lib": [ "es6", "dom" ], 
+    "removeComments": true,
+    "typeRoots": [
+      "/node_modules/@types",
+      "/Types/"
     ]
-  }
+  },
+  "compileOnSave": false,
+  "exclude": [
+    "/node_modules/",
+    "/bin",
+    "/obj"
+  ]
+}
