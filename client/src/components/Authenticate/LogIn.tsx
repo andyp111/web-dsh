@@ -6,7 +6,7 @@ import { ILogIn } from './Interfaces';
 export const LogIn = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [loginInfo, setLoginInfo] = useState<ILogIn>({username, password})
+    // const [loginInfo, setLoginInfo] = useState<ILogIn>({username, password})
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
         if (event.target.name === "username") setUsername(event.target.value);
@@ -15,8 +15,18 @@ export const LogIn = () => {
 
     const loginClick = (event: MouseEvent): void => {
         event.preventDefault();
-        setLoginInfo({username: username, password: password});
-        alert('logged in')
+        let loginInfo: ILogIn = {
+            username: username,
+            password: password
+        }
+
+        axios.post('/api/login', loginInfo)
+            .then((result) => {
+                console.log(result.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     return (
