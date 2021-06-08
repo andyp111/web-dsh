@@ -7,8 +7,8 @@ export const SignUp = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [email, setEmail] = useState<string>('');
-    const [level, setLevel] = useState<string>('');
-    const [signUpInfo, setSignUpInfo] = useState<ISignUp>({username, password, email, level});
+    const [level, setLevel] = useState<string>('Junior');
+    // const [signUpInfo, setSignUpInfo] = useState<ISignUp>({username, password, email, level});
 
     const levelOptions: Array<string> = ['Junior', 'Mid', 'Senior'];
 
@@ -25,8 +25,20 @@ export const SignUp = () => {
 
     const signUpClick = (event: MouseEvent): void => {
         event.preventDefault();
-        setSignUpInfo({username: username, password: password, email: email, level: level});
-        alert('signedup')
+        let signUpInfo: ISignUp = {
+            username: username,
+            password: password,
+            email: email,
+            level: level
+        }
+
+        axios.post<ISignUp>('/api/signup', signUpInfo)
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((error) => {
+                console.log(error)
+            })
         //axios will post
         //
     }
@@ -42,7 +54,7 @@ export const SignUp = () => {
                     onChange={handleChange}
                 />
                 <input
-                    type="type"
+                    type="password"
                     placeholder="input your password..."
                     name="password"
                     value={password}

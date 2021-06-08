@@ -10,10 +10,10 @@ DROP TABLE IF EXISTS posts
 CREATE TABLE userinfo(
     id serial PRIMARY KEY,
     username varchar(60) not null,
-    hashedpassword varchar(60) not null,
+    hashedpassword varchar(255) not null,
     email varchar(60) not null,
     userlevel varchar not null,
-    sessionID int not null
+    sessionID int
 );
 
 CREATE TABLE posts(
