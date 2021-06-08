@@ -14,9 +14,39 @@
 /*!***************************************!*\
   !*** ./client/src/components/App.tsx ***!
   \***************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.App = void 0;\nvar React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nexports.App = function () {\n    return (React.createElement(\"div\", null, \"hello world\"));\n};\n\n\n//# sourceURL=webpack://wb-dash/./client/src/components/App.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"App\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_Authenticate_LogIn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Authenticate/LogIn */ \"./client/src/components/Authenticate/LogIn.tsx\");\n/* harmony import */ var _components_Authenticate_SignUp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Authenticate/SignUp */ \"./client/src/components/Authenticate/SignUp.tsx\");\n/* harmony import */ var _Post_Post__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Post/Post */ \"./client/src/components/Post/Post.tsx\");\n\n\n\n\nvar App = function () {\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null,\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Authenticate_LogIn__WEBPACK_IMPORTED_MODULE_1__.LogIn, null),\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Authenticate_SignUp__WEBPACK_IMPORTED_MODULE_2__.SignUp, null),\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Post_Post__WEBPACK_IMPORTED_MODULE_3__.Post, { username: \"hello\" })));\n};\n\n\n//# sourceURL=webpack://wb-dash/./client/src/components/App.tsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Authenticate/LogIn.tsx":
+/*!******************************************************!*\
+  !*** ./client/src/components/Authenticate/LogIn.tsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"LogIn\": () => (/* binding */ LogIn)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar LogIn = function () {\n    var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), username = _a[0], setUsername = _a[1];\n    var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), password = _b[0], setPassword = _b[1];\n    var _c = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({ username: username, password: password }), loginInfo = _c[0], setLoginInfo = _c[1];\n    var handleChange = function (event) {\n        if (event.target.name === \"username\")\n            setUsername(event.target.value);\n        if (event.target.name === \"password\")\n            setPassword(event.target.value);\n    };\n    var loginClick = function (event) {\n        event.preventDefault();\n        setLoginInfo({ username: username, password: password });\n        alert('logged in');\n    };\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"login-container\" },\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"login-forms\" },\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", { type: \"text\", placeholder: \"username...\", name: \"username\", value: username, onChange: handleChange }),\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", { type: \"password\", placeholder: \"password...\", name: \"password\", value: password, onChange: handleChange })),\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"login-button\" },\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", { onClick: loginClick }, \"Log In\"))));\n};\n\n\n//# sourceURL=webpack://wb-dash/./client/src/components/Authenticate/LogIn.tsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Authenticate/SignUp.tsx":
+/*!*******************************************************!*\
+  !*** ./client/src/components/Authenticate/SignUp.tsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"SignUp\": () => (/* binding */ SignUp)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar SignUp = function () {\n    var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), username = _a[0], setUsername = _a[1];\n    var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), password = _b[0], setPassword = _b[1];\n    var _c = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), email = _c[0], setEmail = _c[1];\n    var _d = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), level = _d[0], setLevel = _d[1];\n    var _e = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({ username: username, password: password, email: email, level: level }), signUpInfo = _e[0], setSignUpInfo = _e[1];\n    var levelOptions = ['Junior', 'Mid', 'Senior'];\n    var handleChange = function (event) {\n        if (event.target.name === \"username\")\n            setUsername(event.target.value);\n        if (event.target.name === \"password\")\n            setPassword(event.target.value);\n        if (event.target.name === \"email\")\n            setEmail(event.target.value);\n    };\n    var handleSelectChange = function (event) {\n        var selected = event.currentTarget.value;\n        setLevel(selected);\n    };\n    var signUpClick = function (event) {\n        event.preventDefault();\n        setSignUpInfo({ username: username, password: password, email: email, level: level });\n        alert('signedup');\n    };\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"signUp-container\" },\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"signUp-forms\" },\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", { type: \"text\", placeholder: \"input your username...\", name: \"username\", value: username, onChange: handleChange }),\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", { type: \"type\", placeholder: \"input your password...\", name: \"password\", value: password, onChange: handleChange }),\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", { type: \"text\", placeholder: \"input your email...\", name: \"email\", value: email, onChange: handleChange }),\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"select\", { value: level, onChange: handleSelectChange }, levelOptions.map(function (level, index) {\n                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"option\", { key: index, value: level }, level);\n            }))),\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"signup-button\" },\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", { onClick: signUpClick }, \"Sign Up\"))));\n};\n\n\n//# sourceURL=webpack://wb-dash/./client/src/components/Authenticate/SignUp.tsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Post/Post.tsx":
+/*!*********************************************!*\
+  !*** ./client/src/components/Post/Post.tsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Post\": () => (/* binding */ Post)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Post = function (username) {\n    var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), title = _a[0], setTitle = _a[1];\n    var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), body = _b[0], setBody = _b[1];\n    var handle = username;\n    var handleChange = function (event) {\n        if (event.target.name === \"title\")\n            setTitle(event.target.value);\n    };\n    var bodyChange = function (event) {\n        if (event.target.name === \"body\")\n            setBody(event.target.value);\n    };\n    var onPostClick = function (event) {\n        alert('posted');\n    };\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"post-container\" },\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"post images\" },\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"image goes here\")),\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"post-title\" },\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", { type: \"text\", placeholder: \"Title\", name: \"title\", onChange: handleChange, value: title })),\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"post-body\" },\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"textarea\", { value: body, name: \"body\", onChange: bodyChange })),\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"post-button\" },\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", { onClick: onPostClick }, \"Post\"))));\n};\n\n\n//# sourceURL=webpack://wb-dash/./client/src/components/Post/Post.tsx?");
 
 /***/ }),
 
@@ -24,9 +54,9 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexpo
 /*!******************************!*\
   !*** ./client/src/index.tsx ***!
   \******************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar ReactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\nvar App_1 = __webpack_require__(/*! ./components/App */ \"./client/src/components/App.tsx\");\nReactDom.render(React.createElement(App_1.App, null), document.getElementById('app'));\n\n\n//# sourceURL=webpack://wb-dash/./client/src/index.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ \"./client/src/components/App.tsx\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2__.App, null), document.getElementById('app'));\n\n\n//# sourceURL=webpack://wb-dash/./client/src/index.tsx?");
 
 /***/ }),
 
@@ -145,6 +175,35 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	
