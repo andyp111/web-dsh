@@ -34,5 +34,27 @@ module.exports = {
                 console.log('fail');
                 res.status(400).send(error);
             })
+    },
+
+    userLogIn: (req, res) => {
+        const {username, password} = req.body;
+        const hashed = hashPassword(password);
+        let q = `select hashedpassword from userinfo where username='${username}'`;
+        client.query(q)
+            .then((result) => {
+                let storedPass = result.rows[0].hashedpassword;
+                if (hashed !== storedPass) throw Error;
+                else {
+                    let updateq = `update userinfo set sessionid = 123 where username = '${username}'`;
+                    client.query(updateq)
+                        .then((result) => {
+                            res.status(200).send('123');
+                        })
+                }
+            })
+            .catch((error) => {
+                res.status(400).send(error)
+            })
+
     }
 }

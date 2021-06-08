@@ -9,4 +9,8 @@ router
     .route('/signup')
     .post(psqlController.userSignUp)
 
+router
+    .route('/login')
+    .post(psqlController.userLogIn)
+
 module.exports = router
