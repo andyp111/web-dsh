@@ -23,15 +23,18 @@ module.exports = {
         let hashed = hashPassword(password);
         let q = `insert into userinfo (username, hashedpassword, email, userlevel) 
             values ('${username}', '${hashed}', '${email}', '${level}')`;
-        
-        client.query(q)
+        let checkq = `select username from userinfo where username='${username}'`;
+        client.query(checkq)
             .then((result) => {
-                console.log('hello')
-                console.log(result);
-                res.status(200).send('inserted');
+                if (result.rows.length > 0) throw new Error;
+                else {
+                    client.query(q)
+                        .then((result) => {
+                            res.status(200).send('inserted')
+                        })
+                }
             })
             .catch((error) => {
-                console.log('fail');
                 res.status(400).send(error);
             })
     },
@@ -43,7 +46,7 @@ module.exports = {
         client.query(q)
             .then((result) => {
                 let storedPass = result.rows[0].hashedpassword;
-                if (hashed !== storedPass) throw Error;
+                if (hashed !== storedPass) throw new Error;
                 else {
                     let updateq = `update userinfo set sessionid = 123 where username = '${username}'`;
                     client.query(updateq)
