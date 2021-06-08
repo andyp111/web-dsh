@@ -18,6 +18,9 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+app.get('/signup', (req, res) => {
+    res.sendFile('index.html', {root: path.join(__dirname, '../client/dist')});
+})
 
 
 app.listen(port, () => {

@@ -8,8 +8,8 @@
     "lib": [ "es6", "dom" ], 
     "removeComments": true,
     "typeRoots": [
-      "/node_modules/@types",
-      "/Types/"
+      "./node_modules/@types",
+      "./Types/"
     ]
   },
   "compileOnSave": false,

@@ -2,8 +2,9 @@ import * as React from 'react';
 import { useState, ChangeEvent, MouseEvent } from 'react';
 import axios from 'axios';
 import { ILogIn } from './Interfaces';
+import { withRouter } from 'react-router-dom';
 
-export const LogIn = () => {
+const LogIn = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     // const [loginInfo, setLoginInfo] = useState<ILogIn>({username, password})
@@ -54,3 +55,5 @@ export const LogIn = () => {
         </div>
     )
 }
+
+export default withRouter(LogIn);
