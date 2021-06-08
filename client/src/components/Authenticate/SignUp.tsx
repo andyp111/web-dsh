@@ -31,7 +31,7 @@ export const SignUp = () => {
             email: email,
             level: level
         }
-        
+
         axios.post<ISignUp>('/api/signup', signUpInfo)
             .then((result) => {
                 console.log(result);
@@ -54,7 +54,7 @@ export const SignUp = () => {
                     onChange={handleChange}
                 />
                 <input
-                    type="type"
+                    type="password"
                     placeholder="input your password..."
                     name="password"
                     value={password}
