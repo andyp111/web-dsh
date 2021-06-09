@@ -30,6 +30,11 @@ const LogIn = () => {
             })
     }
 
+    const onSwitchClick = (event: MouseEvent): void => {
+        event.preventDefault();
+        window.location.href = '/signup';
+    }
+
     return (
         <div className="login-container">
             <div className="login-forms">
@@ -50,6 +55,9 @@ const LogIn = () => {
             </div>
             <div className="login-button">
                 <button onClick={loginClick}>Log In</button>
+            </div>
+            <div className="login-switch">
+                <p>Don't have an account? <a onClick={onSwitchClick}>Sign Up Here</a></p>
             </div>
 
         </div>

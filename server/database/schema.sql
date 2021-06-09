@@ -13,7 +13,7 @@ CREATE TABLE userinfo(
     hashedpassword varchar(255) not null,
     email varchar(60) not null,
     userlevel varchar not null,
-    sessionID int
+    sessionID varchar(255)
 );
 
 CREATE TABLE posts(
