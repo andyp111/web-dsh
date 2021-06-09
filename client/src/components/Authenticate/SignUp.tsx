@@ -42,6 +42,11 @@ export const SignUp = () => {
         //axios will post
         //
     }
+
+    const onSwitchClick = (event: MouseEvent): void => {
+        event.preventDefault();
+        window.location.href = '/';
+    }
     
     return (
         <div className="signUp-container">
@@ -78,6 +83,9 @@ export const SignUp = () => {
             </div>
             <div className="signup-button">
                     <button onClick={signUpClick}>Sign Up</button>
+            </div>
+            <div className="login-switch">
+                <p>Already have an account? <a onClick={onSwitchClick}>Log In Here</a></p>
             </div>
         </div>
     )
