@@ -46,7 +46,7 @@ const generatePost = () => {
     let photosArr = [];
     let p = '';
     let title = faker.lorem.words().toString();
-    let body = lorem.generateParagraphs(2).toString();
+    let body = faker.lorem.sentences().toString();
     for (let i = 1; i <= 3; i++) {
         let photos = faker.image.imageUrl();
         photosObj[i] = photos;
@@ -56,7 +56,8 @@ const generatePost = () => {
     photosArr.push(photosObj);
     p += title + ',';
     p += body + ',';
-    p += JSON.stringify(photosArr) + ',';
+    // p += JSON.stringify(photosArr) + ',';
+    p += '{},';
     p += datecreated + ',';
     p += userId + '\n';
 
