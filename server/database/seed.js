@@ -28,7 +28,7 @@ const generateUser = () => {
     let username = faker.internet.userName().toString();
     let password = passwordd;
     let email = emaild;
-    let userlevel = userleveld[Math.floor(Math.random() * (userleveld.length - 1))].toString()
+    let userlevel = userleveld[Math.floor(Math.random() * 3)].toString()
 
     userString += username + ',';
     userString += password + ',';
@@ -43,7 +43,7 @@ const generatePost = () => {
     //this is only for userid 1
     //test1 test1
     let photosObj = {};
-
+    let photosArr = [];
     let p = '';
     let title = faker.lorem.words().toString();
     let body = lorem.generateParagraphs(2).toString();
@@ -51,12 +51,12 @@ const generatePost = () => {
         let photos = faker.image.imageUrl();
         photosObj[i] = photos;
     };
-    let datecreated = dates[Math.floor(Math.floor(Math.random() * (dates.length - 1)))].toDateString();
+    let datecreated = dates[Math.floor(Math.floor(Math.random() * 5))].toDateString();
     let userId = 1;
-
+    photosArr.push(photosObj);
     p += title + ',';
     p += body + ',';
-    p += photosObj + ',';
+    p += JSON.stringify(photosArr) + ',';
     p += datecreated + ',';
     p += userId + '\n';
 
