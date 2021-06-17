@@ -25,4 +25,9 @@ CREATE TABLE posts(
     userId int not null,
     CONSTRAINT userId FOREIGN KEY(userId) REFERENCES userInfo(id) ON DELETE SET null
 );
+/*
+post under what language
+user can follow specific languages and get that
+programming languages filter
 
+*/
