@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { useState, ChangeEvent, MouseEvent } from 'react';
 import axios from 'axios';
-import { ILogIn } from './Interfaces';
-import { withRouter } from 'react-router-dom';
+import { ILogIn } from './Authenticate.Interfaces';
+import { withRouter, useHistory } from 'react-router-dom';
 
 const LogIn = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
     // const [loginInfo, setLoginInfo] = useState<ILogIn>({username, password})
-
+    let history = useHistory();
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
         if (event.target.name === "username") setUsername(event.target.value);
         if (event.target.name === "password") setPassword(event.target.value);
@@ -24,9 +25,10 @@ const LogIn = () => {
         axios.post('/api/login', loginInfo)
             .then((result) => {
                 console.log(result.data);
+                history.push('/home');
             })
             .catch((error) => {
-                console.log(error);
+                setInvalidPassword(true);
             })
     }
 
@@ -56,6 +58,7 @@ const LogIn = () => {
             <div className="login-button">
                 <button onClick={loginClick}>Log In</button>
             </div>
+            {invalidPassword && <div>incorrect password</div>}
             <div className="login-switch">
                 <p>Don't have an account? <a onClick={onSwitchClick}>Sign Up Here</a></p>
             </div>
