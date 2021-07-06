@@ -36,9 +36,13 @@ module.exports = {
     ],
   },
   plugins: [
-    
+
     new MiniCssExtractPlugin({
       filename: "./client/dist/styles.css",
     }),
+  ],
+  presets: [
+    ['@babel/preset-env', {targets: {node: 'current'}}],
++    '@babel/preset-typescript',
   ],
 };
