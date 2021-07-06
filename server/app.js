@@ -22,6 +22,9 @@ app.get('/signup', (req, res) => {
     res.sendFile('index.html', {root: path.join(__dirname, '../client/dist')});
 })
 
+app.get('/home', (req, res) => {
+    res.sendFile('index.html', {root: path.join(__dirname, '../client/dist')})
+})
 
 app.listen(port, () => {
     console.log(`listening on http://localhost:${port}`);

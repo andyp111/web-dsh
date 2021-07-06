@@ -63,5 +63,33 @@ module.exports = {
                 res.status(400).send(error)
             })
 
+    },
+
+    getPostInfo: (req, res) => {
+        const { id } = req.params.id;
+        const rehashed = hash.hashId(id);
+        console.log(rehashed);
+        //check if sessionid is correct;
+
+        //then display all posts;
+        let q = `select sessionid from userinfo where sessionid='${rehashed}'`;
+        client.query(q)
+            .then((result) => {
+                console.log(result.rows);
+                let checked = result.rows[0].sessionid;
+                console.log(checked);
+                if (!checked) throw new Error;
+                else {
+                    let getpostq = `select * from posts`;
+                    client.query(getpostq)
+                        .then((result) => {
+                            res.status(200).send(result.rows);
+                        })
+                }
+            })
+            .catch((error) => {
+                res.status(400).send('session has expired, please login again')
+            })
+
     }
 }
