@@ -26,9 +26,9 @@ CREATE TABLE posts(
     CONSTRAINT userId FOREIGN KEY(userId) REFERENCES userInfo(id) ON DELETE SET null
 );
 
-COPY posts(title, body, photos, datecreated, userId) 
-FROM '/Users/andypham/projects/wb-dash/posts.csv' 
-DELIMITER ',' 
+COPY posts(title, body, photos, datecreated, userId)
+FROM '/Users/theo/Desktop/webdsh/web-dsh/server/database/posts.csv'
+DELIMITER ','
 CSV HEADER;
 /*
 post under what language
