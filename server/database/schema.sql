@@ -21,8 +21,18 @@ CREATE TABLE posts(
     title varchar(60) not null,
     body varchar(65535),
     photos json,
-    datecreated varchar(12),
+    datecreated varchar(255),
     userId int not null,
     CONSTRAINT userId FOREIGN KEY(userId) REFERENCES userInfo(id) ON DELETE SET null
 );
 
+COPY posts(title, body, photos, datecreated, userId) 
+FROM '/Users/andypham/projects/wb-dash/posts.csv' 
+DELIMITER ',' 
+CSV HEADER;
+/*
+post under what language
+user can follow specific languages and get that
+programming languages filter
+
+*/
