@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FC, useState, ChangeEvent, MouseEvent } from 'react';
 import axios from 'axios';
-import { IPost } from './Interfaces';
+import { IPost } from './Posts.Interfaces';
 
 
 interface Props {

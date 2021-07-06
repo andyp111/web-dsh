@@ -13,4 +13,8 @@ router
     .route('/login')
     .post(psqlController.userLogIn)
 
+router
+    .route('/home/:id')
+    .get(psqlController.getPostInfo)
+
 module.exports = router

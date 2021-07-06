@@ -1,7 +1,7 @@
 import * as React from 'react';
 import axios from 'axios';
 import { useState, ChangeEvent, MouseEvent } from 'react';
-import { ISignUp } from './Interfaces';
+import { ISignUp } from './Authenticate.Interfaces';
 
 export const SignUp = () => {
     const [username, setUsername] = useState<string>('');
