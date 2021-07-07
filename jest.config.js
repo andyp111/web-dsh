@@ -1,10 +1,10 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  // The root of your source code, typically /src
+   // The root of your source code, typically /src
   // `<rootDir>` is a token Jest substitutes
   roots: ["<rootDir>/client/src"],
-  modulePaths: ["<rootDir>/client/src"],
+
   // Jest transformations -- this adds support for TypeScript
   // using ts-jest
   transform: {
@@ -15,7 +15,7 @@ module.exports = {
   // when using React Testing Library and adds special
   // extended assertions to Jest
   setupFilesAfterEnv: [
-    "@testing-library/react/cleanup-after-each",
+    // "@testing-library/react/cleanup-after-each",
     "@testing-library/jest-dom/extend-expect"
   ],
 
