@@ -2,10 +2,12 @@ import * as React from 'react';
 import axios from 'axios';
 import { useState, ChangeEvent, MouseEvent } from 'react';
 import { ISignUp } from './Authenticate.Interfaces';
+import { validatePassword } from './Validation/Validate';
 
 export const SignUp = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [invalidPassword, setInvalidPassword] = useState<boolean>(false)
     const [email, setEmail] = useState<string>('');
     const [level, setLevel] = useState<string>('Junior');
     // const [signUpInfo, setSignUpInfo] = useState<ISignUp>({username, password, email, level});
@@ -14,7 +16,11 @@ export const SignUp = () => {
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
         if (event.target.name === "username") setUsername(event.target.value);
-        if (event.target.name === "password") setPassword(event.target.value);
+        if (event.target.name === "password") {
+            setPassword(event.target.value);
+            if (!validatePassword(event.target.value)) setInvalidPassword(true);
+            else setInvalidPassword(false);
+        }   
         if (event.target.name === "email") setEmail(event.target.value);
     }
 
@@ -65,6 +71,7 @@ export const SignUp = () => {
                     value={password}
                     onChange={handleChange}
                 />
+                {invalidPassword && <div>invalid password length </div>}
                 <input
                     type="text"
                     placeholder="input your email..."

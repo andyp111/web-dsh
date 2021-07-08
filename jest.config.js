@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
    // The root of your source code, typically /src
   // `<rootDir>` is a token Jest substitutes
   roots: ["<rootDir>/client/src"],
