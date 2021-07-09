@@ -33,6 +33,13 @@ module.exports = {
         test: /\.css$/,
         loader: "css-loader",
       },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000
+        }
+      },
     ],
   },
   plugins: [
@@ -40,9 +47,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "./client/dist/styles.css",
     }),
-  ],
-  presets: [
-    ['@babel/preset-env', {targets: {node: 'current'}}],
-+    '@babel/preset-typescript',
   ],
 };

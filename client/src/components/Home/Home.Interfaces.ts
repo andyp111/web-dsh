@@ -9,5 +9,6 @@ export interface IHomeData {
 
 
 export interface IHomeDataProps {
-    data: IHomeData[]
+    data?: IHomeData[]
+    info?: IHomeData
 }

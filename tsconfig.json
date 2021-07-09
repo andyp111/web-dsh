@@ -5,7 +5,7 @@
     "target": "es5",
     "sourceMap": true,
     "jsx": "react",
-    "lib": [ "es6", "dom" ], 
+    "lib": [ "es6", "dom" ],
     "removeComments": true,
     "typeRoots": [
       "./node_modules/@types",
@@ -17,5 +17,7 @@
     "/node_modules/",
     "/bin",
     "/obj"
-  ]
+  ],
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true
 }
