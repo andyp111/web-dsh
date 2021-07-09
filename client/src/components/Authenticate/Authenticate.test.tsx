@@ -2,29 +2,36 @@ const app = require("../../../../server/app.js");
 const request = require("supertest");
 import * as React from "react";
 
-import { validatePassword } from './Validation/Validate';
+import { validatePassword, validateEmail } from './Validation/Validate';
 
 
 describe("password validation", (): void => {
   it("should return false for a password less than 6 characters", () => {
-    let falsypass = 'hello';
+    let falsypass: string = 'hello';
     expect(validatePassword(falsypass)).toBe(false);
   })
 })
 
 describe("password validation - true", (): void => {
   it("should return true for a password with at least 6 characters", () => {
-    let truepass = 'hello1';
+    let truepass: string = 'hello1';
     expect(validatePassword(truepass)).toBe(true);
   })
 })
-// describe("<Login />", (): void => {
-//   it("should display a blank login form", () => {
-//     render(<LogIn />);
-//     const input = screen.getByPlaceholderText('username');
-//     console.log(input);
-//   })
-// })
+
+describe('email is not valid', (): void => {
+  it("should return false for invalid email", () => {
+    let falsyemail: string = 'hello';
+    expect(validateEmail(falsyemail)).toBe(false);
+  })
+})
+
+describe('email is valid', (): void => {
+  it("should return true for invalid email", () => {
+    let validEmail: string = 'hello@gmail.com';
+    expect(validateEmail(validEmail)).toBe(true);
+  })
+})
 
 describe("Should fail with already existing login information", (): void => {
   it("should return a 400 code for already existing login information", async () => {

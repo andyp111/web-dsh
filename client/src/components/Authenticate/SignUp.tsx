@@ -2,12 +2,13 @@ import * as React from 'react';
 import axios from 'axios';
 import { useState, ChangeEvent, MouseEvent } from 'react';
 import { ISignUp } from './Authenticate.Interfaces';
-import { validatePassword } from './Validation/Validate';
+import { validatePassword, validateEmail } from './Validation/Validate';
 
 export const SignUp = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [invalidPassword, setInvalidPassword] = useState<boolean>(false)
+    const [invalidEmail, setInvalidEmail] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
     const [level, setLevel] = useState<string>('Junior');
     // const [signUpInfo, setSignUpInfo] = useState<ISignUp>({username, password, email, level});
@@ -21,7 +22,11 @@ export const SignUp = () => {
             if (!validatePassword(event.target.value)) setInvalidPassword(true);
             else setInvalidPassword(false);
         }   
-        if (event.target.name === "email") setEmail(event.target.value);
+        if (event.target.name === "email") {
+            setEmail(event.target.value);
+            if (!validateEmail(event.target.value)) setInvalidEmail(true);
+            else (setInvalidEmail(false));
+        }
     }
 
     const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>): void => {
@@ -79,6 +84,7 @@ export const SignUp = () => {
                     value={email}
                     onChange={handleChange}
                 />
+                {invalidEmail && <div>invalid email</div>}
                 <select value={level} onChange={handleSelectChange}>
                     {levelOptions.map((level, index) => {
                         return <option key={index} value={level}>
