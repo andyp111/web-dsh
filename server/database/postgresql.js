@@ -1,10 +1,10 @@
 const { Client } = require('pg');
 
 const client = new Client({
-    user: 'theo',
+    user: 'andypham',
     host: 'localhost',
     database: 'webdash',
-    password: '',
+    password: 'password',
     port: 5432
 });
 
